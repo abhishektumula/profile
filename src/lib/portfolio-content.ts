@@ -11,6 +11,7 @@ export type Experience = {
 
 export const portfolioContent = {
   name: "Abhishek Tumula",
+  githubProfile: "https://github.com/abhishektumula",
   bio: "I design and build smart web applications and AI-driven tools using Python, React, and modern technologies. Passionate about clean UI, scalable systems, and solving real-world problems through code.",
   skills: [
     "Next js",
@@ -22,6 +23,8 @@ export const portfolioContent = {
     "bun",
     "Prisma",
     "Postgresql",
+    "postman",
+    "Figma",
   ],
   projects: [
     {
@@ -56,12 +59,12 @@ export const portfolioContent = {
   ],
   experiences: [
     {
-      company: "HCL Tech",
+      company: "Confidential Company 1",
       roleSummary:
         "Worked as a Frontend Engineer, developing responsive and user-friendly web applications with a strong focus on performance and clean design. Collaborated with cross-functional teams to implement new features, optimize UI components, debug issues, and improve overall user experience. Ensured code quality through reusable components, modern frontend practices, and consistent design implementation.",
     },
     {
-      company: "Slash Mark",
+      company: "Confidential Company 2",
       roleSummary:
         "Worked as a Data Science Intern, assisting in data cleaning, preprocessing, and basic analysis to support model development. Contributed to training and testing simple machine learning models while learning core concepts of data science and AI workflows. Supported the team in organizing datasets, improving data quality, and understanding model performance metrics.",
     },

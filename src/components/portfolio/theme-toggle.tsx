@@ -75,7 +75,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="fixed right-5 top-5 rounded-full bg-neutral-200 p-2 text-neutral-900 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-neutral-300 hover:shadow dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700"
+      className="shrink-0 rounded-full bg-neutral-200 p-2 text-neutral-900 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-neutral-300 hover:shadow dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700"
       aria-label="Toggle color theme"
       title="Toggle color theme"
     >
