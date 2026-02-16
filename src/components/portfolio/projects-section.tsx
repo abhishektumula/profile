@@ -1,6 +1,7 @@
 import { portfolioContent } from "@/lib/portfolio-content";
-import { ExternalLinkIcon, LinkIcon } from "@/components/portfolio/icons";
 import { SectionTitle } from "@/components/portfolio/section-title";
+import { IconExternalLink } from "@tabler/icons-react";
+import { LinkIcon } from "./icons";
 
 export function ProjectsSection() {
   return (
@@ -17,7 +18,7 @@ export function ProjectsSection() {
               rel="noreferrer"
             >
               {project.name}
-              <ExternalLinkIcon />
+              <IconExternalLink size={24} />
             </a>
             <p className="mt-2 max-w-2xl text-base leading-relaxed text-neutral-700 transition duration-200 group-hover:text-neutral-900 dark:text-neutral-300 dark:group-hover:text-neutral-100 sm:text-lg">
               {project.description}
