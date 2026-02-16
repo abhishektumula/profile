@@ -18,7 +18,9 @@ export function ThemeToggle() {
     }
 
     const stored = localStorage.getItem(STORAGE_KEY);
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const systemDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
     return stored === "light" || stored === "dark"
       ? (stored as Theme)
       : systemDark
@@ -38,7 +40,10 @@ export function ThemeToggle() {
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    if (typeof document.startViewTransition !== "function" || prefersReducedMotion) {
+    if (
+      typeof document.startViewTransition !== "function" ||
+      prefersReducedMotion
+    ) {
       setTheme(nextTheme);
       return;
     }
