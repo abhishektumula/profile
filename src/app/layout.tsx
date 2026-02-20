@@ -52,6 +52,11 @@ export const metadata: Metadata = {
     description:
       "Reusable developer portfolio template with featured projects, experience, and accessible light/dark mode.",
   },
+  icons: {
+    icon: [{ url: "/profile.png?v=2", type: "image/png", sizes: "32x32" }],
+    shortcut: [{ url: "/profile.png?v=2", type: "image/png" }],
+    apple: [{ url: "/profile.png?v=2", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({

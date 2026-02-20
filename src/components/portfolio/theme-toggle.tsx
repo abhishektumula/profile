@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import type { MouseEvent } from "react";
 
 type Theme = "light" | "dark";
@@ -11,26 +11,51 @@ function applyTheme(theme: Theme) {
   document.documentElement.classList.toggle("dark", theme === "dark");
 }
 
-export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") {
-      return "light";
-    }
+function getThemeSnapshot(): Theme {
+  if (typeof window === "undefined") {
+    return "light";
+  }
 
-    const stored = localStorage.getItem(STORAGE_KEY);
-    const systemDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    return stored === "light" || stored === "dark"
-      ? (stored as Theme)
-      : systemDark
-        ? "dark"
-        : "light";
-  });
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored === "light" || stored === "dark") {
+    return stored;
+  }
+
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
+
+function subscribeToTheme(onStoreChange: () => void) {
+  if (typeof window === "undefined") {
+    return () => {};
+  }
+
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  const onMediaChange = () => onStoreChange();
+  const onStorageChange = () => onStoreChange();
+  const onThemeChange = () => onStoreChange();
+
+  mediaQuery.addEventListener("change", onMediaChange);
+  window.addEventListener("storage", onStorageChange);
+  window.addEventListener("theme-change", onThemeChange);
+
+  return () => {
+    mediaQuery.removeEventListener("change", onMediaChange);
+    window.removeEventListener("storage", onStorageChange);
+    window.removeEventListener("theme-change", onThemeChange);
+  };
+}
+
+export function ThemeToggle() {
+  const theme = useSyncExternalStore<Theme>(
+    subscribeToTheme,
+    getThemeSnapshot,
+    () => "light",
+  );
 
   useEffect(() => {
     applyTheme(theme);
-    localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 
   const toggleTheme = (event: MouseEvent<HTMLButtonElement>) => {
@@ -44,7 +69,9 @@ export function ThemeToggle() {
       typeof document.startViewTransition !== "function" ||
       prefersReducedMotion
     ) {
-      setTheme(nextTheme);
+      localStorage.setItem(STORAGE_KEY, nextTheme);
+      applyTheme(nextTheme);
+      window.dispatchEvent(new Event("theme-change"));
       return;
     }
 
@@ -56,7 +83,9 @@ export function ThemeToggle() {
     );
 
     const transition = document.startViewTransition(() => {
-      setTheme(nextTheme);
+      localStorage.setItem(STORAGE_KEY, nextTheme);
+      applyTheme(nextTheme);
+      window.dispatchEvent(new Event("theme-change"));
     });
 
     transition.ready.then(() => {
