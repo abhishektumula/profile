@@ -2,6 +2,7 @@ import { Container } from "@/components/portfolio/container";
 import { ExperienceSection } from "@/components/portfolio/experience-section";
 import { HeroSection } from "@/components/portfolio/hero-section";
 import { ProjectsSection } from "@/components/portfolio/projects-section";
+import { SignatureFooter } from "@/components/portfolio/signature-footer";
 import { TopActions } from "@/components/portfolio/top-actions";
 import { portfolioContent } from "@/lib/portfolio-content";
 
@@ -13,6 +14,7 @@ export default function Home() {
         <HeroSection />
         <ProjectsSection />
         <ExperienceSection />
+        <SignatureFooter />
       </Container>
     </div>
   );
