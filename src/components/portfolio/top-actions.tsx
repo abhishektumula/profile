@@ -6,10 +6,11 @@ import { GitHubIcon } from "@/components/portfolio/github-icon";
 
 type TopActionsProps = {
   githubUrl: string;
-  emailAddress?: string;
 };
 
-export function TopActions({ githubUrl, emailAddress }: TopActionsProps) {
+const CONTACT_EMAIL = "abhishektumula.in@gmail.com";
+
+export function TopActions({ githubUrl }: TopActionsProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -22,9 +23,9 @@ export function TopActions({ githubUrl, emailAddress }: TopActionsProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const contactHref = emailAddress
-    ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`
-    : "#";
+  const contactHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`;
+  const actionButtonClass =
+    "inline-flex h-9 items-center justify-center gap-2 rounded-full border border-neutral-300 bg-neutral-100 px-3 text-xs font-semibold text-neutral-800 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-neutral-200 hover:shadow dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 sm:h-10 sm:px-4 sm:text-sm";
 
   return (
     <div
@@ -40,7 +41,7 @@ export function TopActions({ githubUrl, emailAddress }: TopActionsProps) {
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-neutral-300 bg-neutral-100 px-3 py-2 text-xs font-semibold text-neutral-800 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-neutral-200 hover:shadow dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 sm:px-4 sm:text-sm"
+            className={actionButtonClass}
           >
             <GitHubIcon />
             GitHub
@@ -49,7 +50,7 @@ export function TopActions({ githubUrl, emailAddress }: TopActionsProps) {
             href={contactHref}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full border border-neutral-300 bg-neutral-100 px-3 py-2 text-xs font-semibold text-neutral-800 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-neutral-200 hover:shadow dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700 sm:px-4 sm:text-sm"
+            className={actionButtonClass}
           >
             Contact Me
           </a>

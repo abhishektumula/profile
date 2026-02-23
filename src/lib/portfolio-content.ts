@@ -1,5 +1,6 @@
 export type Project = {
   name: string;
+  url?: string;
   description: string;
   href: string;
 };
@@ -30,18 +31,21 @@ export const portfolioContent = {
     {
       name: "Comet",
       href: "https://github.com/abhishektumula/comet.git",
+      url: "https://github.com/abhishektumula/comet.git",
       description:
         "Comet is an AI-powered call agent designed to automate customer outreach and convert leads into paying customers. It intelligently interacts with users, evaluates responses, and generates detailed reports for administrators, helping businesses boost sales and drive growth through smart automation.",
     },
     {
       name: "s2Chat",
       href: "https://github.com/abhishektumula/s2.git",
+      url: "https://s2chat.vercel.app",
       description:
         "S2 is a privacy-focused real-time chat application built using WebSockets, designed for secure one-to-one communication. It emphasizes user privacy and simplicity, allowing anyone to clone the repository and deploy a personal chat instance for private conversations.",
     },
     {
       name: "AI Companion",
       href: "https://github.com/abhishektumula/AI-Companion-2025",
+      url: "https://github.com/abhishektumula/AI-Companion-2025",
       description:
         "AI Companion is a supportive digital assistant built to provide a safe, non-judgmental environment where users can freely express their thoughts and emotions. It focuses on empathetic conversations, helping users feel heard and understood while ensuring privacy and comfort.",
     },
@@ -50,11 +54,13 @@ export const portfolioContent = {
     {
       name: "tweetbox",
       href: "https://github.com/abhishektumula/TweetBox.git",
+      url: "https://github.com/abhishektumula/TweetBox.git",
     },
     { name: "funProject", href: "https://github.com/abhishektumula/funP.git" },
     {
       name: "Interior design freelance project",
       href: "https://github.com/abhishektumula/FLP-1.git",
+      url: "https://sreeja-interiors.vercel.app",
     },
   ],
   experiences: [
