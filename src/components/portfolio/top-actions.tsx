@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { ThemeToggle } from "@/components/portfolio/theme-toggle";
 import { GitHubIcon } from "@/components/portfolio/github-icon";
 
@@ -36,7 +37,10 @@ export function TopActions({ githubUrl }: TopActionsProps) {
       }`}
     >
       <div className="flex w-full justify-end px-4 py-4 sm:px-6 sm:py-5">
-        <div className="flex max-w-[100vw] items-center gap-3">
+        <div className="flex max-w-[100vw] items-center gap-2 sm:gap-3">
+          <Link href="/" className={actionButtonClass}>
+            Home
+          </Link>
           <a
             href={githubUrl}
             target="_blank"
@@ -46,6 +50,9 @@ export function TopActions({ githubUrl }: TopActionsProps) {
             <GitHubIcon />
             GitHub
           </a>
+          <Link href="/blogs" className={actionButtonClass}>
+            Blogs
+          </Link>
           <a
             href={contactHref}
             target="_blank"

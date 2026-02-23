@@ -10,6 +10,13 @@ export type Experience = {
   roleSummary: string;
 };
 
+export type Blog = {
+  title: string;
+  href: string;
+  excerpt: string;
+  publishedAt: string;
+};
+
 export const portfolioContent = {
   name: "Abhishek Tumula",
   githubProfile: "https://github.com/abhishektumula",
@@ -75,4 +82,13 @@ export const portfolioContent = {
         "Worked as a Data Science Intern, assisting in data cleaning, preprocessing, and basic analysis to support model development. Contributed to training and testing simple machine learning models while learning core concepts of data science and AI workflows. Supported the team in organizing datasets, improving data quality, and understanding model performance metrics.",
     },
   ] as Experience[],
+  blogs: [
+    {
+      title: "Why Modern Software Sucks (And What It Says About Our Tech Culture)",
+      href: "https://medium.com/@abhishektumula.in/why-modern-software-sucks-and-what-it-says-about-our-tech-culture-63704acc8dfa",
+      excerpt:
+        "An essay on why software quality is declining, what incentives caused it, and how engineering culture can recover craftsmanship.",
+      publishedAt: "Medium",
+    },
+  ] as Blog[],
 };
