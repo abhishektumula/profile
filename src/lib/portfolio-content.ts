@@ -90,5 +90,12 @@ export const portfolioContent = {
         "An essay on why software quality is declining, what incentives caused it, and how engineering culture can recover craftsmanship.",
       publishedAt: "Medium",
     },
+    {
+      title: "Is Gemini 3.1 Pro the Smartest Model Ever Made?",
+      href: "https://medium.com/@dammmhmmm9/is-gemini-3-1-pro-is-the-smartest-model-ever-made-4c0d11e57b4a",
+      excerpt:
+        "A critical take on Gemini 3.1 Pro, evaluating capability claims and what 'smartest model' means in practical engineering terms.",
+      publishedAt: "Medium",
+    },
   ] as Blog[],
 };
